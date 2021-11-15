@@ -16,7 +16,6 @@
 #include QMK_KEYBOARD_H
 
 //TODO remove this crap
-#define SY_PLS LT(_SYMBOL, KC_PPLS)
 #define SY_MIN LT(_SYMBOL, KC_MINS)
 #define SY_SPC LT(NAV, KC_SPC)
 #define G_COMM LGUI_T(KC_COMM)
@@ -59,11 +58,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   `----------------------------'           '------''--------------------'
  */
  [_QWERTY] = LAYOUT(
-  SY_MIN,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    SY_PLS,
+  SY_MIN,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQUAL,
   KC_GRV,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_ESC,        KC_QUOT,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                             KC_LCTRL,     KC_LGUI,  SY_SPC, KC_MINS,      KC_QUOT,  LT(SYMBOL, KC_SPC),   KC_LGUI, KC_LALT
+                             KC_LCTRL,     KC_LGUI,  SY_SPC, KC_MINS,      KC_QUOT,  LT(SYMBOL, KC_SPC),   KC_LGUI, KC_RALT
 ),
 
 /* Nav
@@ -83,11 +82,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //TODO make move macro
   
 
+ //TODO remove unused keys
  [_NAV] = LAYOUT(
   KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
   KC_TAB,   LALT(LSFT(KC_1)),   LALT(LSFT(KC_2)),    LALT(LSFT(KC_3)),    LALT(LSFT(KC_4)),    KC_T,                           LALT(KC_LEFT),    LALT(KC_DOWN),    LALT(KC_UP),    LALT(KC_RIGHT),    LALT(KC_BSPC),    KC_BSLS,
   KC_LCTRL, LALT(LCTL(KC_1)),   LALT(LCTL(KC_2)),    LALT(LCTL(KC_3)),    LALT(LCTL(KC_4)),    KC_G,                           KC_LEFT,    KC_DOWN,    KC_UP,    KC_RIGHT,    KC_BSPC, KC_QUOT,
-  LALT(LCTL(KC_SPC)),  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   SY_PLS,        SY_MIN,  LGUI(KC_LEFT),    LGUI(KC_DOWN),    LGUI(KC_UP),    LGUI(KC_RIGHT),  LGUI(KC_BSPC), KC_RSFT,
+  LALT(LCTL(KC_SPC)),  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_PLUS,        SY_MIN,  LGUI(KC_LEFT),    LGUI(KC_DOWN),    LGUI(KC_UP),    LGUI(KC_RIGHT),  LGUI(KC_BSPC), KC_RSFT,
                              ADJ,     KC_LALT, G_COMM, KC_SFTENT,     SY_SPC,  A_DOT,   KC_HOME, KC_END
 ),
 /* SYMBOL
