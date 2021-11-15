@@ -40,21 +40,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ////Move
     
     //TODO match keycaps
-    //TODO fix diagram
 
+    //TODO Change upper left -/_
+    //TODO add layer to thumb -/_
 
 /* QWERTY
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | Back |
+ * | -/_  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | =/+  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  \   |
+ * | `/~  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  \|  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Ctrl |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
- * |------+------+------+------+------+------| SYM + |    | SYM - |------+------+------+------+------+------|
+ * | Tab  |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  | Enter|
+ * |------+------+------+------+------+------| Esc   |    |   '/" |------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | Shift|
- * `-----------------------------------------/ Shift /     \  SYM \-----------------------------------------'
- *                   |  ADJ |  Alt |  Cmd | / Enter /       \ Space\  |  Alt | Home | End  |
- *                   |      |      |   ,  |/       /         \      \ |   .  |      |      |
+ * `-----------------------------------------/ -/_   /     \  '/" \-----------------------------------------'
+ *                   |  Ctl |  Cmd | Space| /       /       \      \  | Space| Cmd  | Alt  |
+ *                   |      |      | Nav  |/       /         \      \ | Num  |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
  [_QWERTY] = LAYOUT(
@@ -62,33 +63,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,                           KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_TAB,   KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_ESC,        KC_QUOT,  KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,
-                             KC_LCTRL,     KC_LGUI,  SY_SPC, KC_MINS,      KC_QUOT,  LT(SYMBOL, KC_SPC),   KC_LGUI, KC_RALT
+                             KC_LCTRL, KC_LGUI, SY_SPC, KC_MINS,      KC_QUOT,  LT(SYMBOL, KC_SPC),   KC_LGUI, KC_RALT
 ),
 
 /* Nav
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * | ESC  |   1  |   2  |   3  |   4  |   5  |                    |   6  |   7  |   8  |   9  |   0  | Back |
+ * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  |   Q  |   W  |   E  |   R  |   T  |                    |   Y  |   U  |   I  |   O  |   P  |  \   |
+ * |      |Send 1|Send 2|Send 3|Send 4|Send 5|                    |   Y  |   U  |   I  |   O  |   P  |  \   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Ctrl |   A  |   S  |   D  |   F  |   G  |-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
+ * |      |Move 1|Move 2|Move 3|Move 4|Move 5|-------.    ,-------|   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------| SYM + |    | SYM - |------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | Shift|
+ * | Omni |      |      |      |      |      |-------|    |-------|   N  |   M  |   ,  |   .  |   /  | Shift|
  * `-----------------------------------------/ Shift /     \  SYM \-----------------------------------------'
  *                   |  ADJ |  Alt |  Cmd | / Enter /       \ Space\  |  Alt | Home | End  |
  *                   |      |      |   ,  |/       /         \      \ |   .  |      |      |
  *                   `----------------------------'           '------''--------------------'
  */
  //TODO make move macro
+ //TODO make Omni a macro
   
 
  //TODO remove unused keys
  [_NAV] = LAYOUT(
-  KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                           KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
-  KC_TAB,   LALT(LSFT(KC_1)),   LALT(LSFT(KC_2)),    LALT(LSFT(KC_3)),    LALT(LSFT(KC_4)),    KC_T,                           LALT(KC_LEFT),    LALT(KC_DOWN),    LALT(KC_UP),    LALT(KC_RIGHT),    LALT(KC_BSPC),    KC_BSLS,
-  KC_LCTRL, LALT(LCTL(KC_1)),   LALT(LCTL(KC_2)),    LALT(LCTL(KC_3)),    LALT(LCTL(KC_4)),    KC_G,                           KC_LEFT,    KC_DOWN,    KC_UP,    KC_RIGHT,    KC_BSPC, KC_QUOT,
-  LALT(LCTL(KC_SPC)),  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_PLUS,        SY_MIN,  LGUI(KC_LEFT),    LGUI(KC_DOWN),    LGUI(KC_UP),    LGUI(KC_RIGHT),  LGUI(KC_BSPC), KC_RSFT,
-                             ADJ,     KC_LALT, G_COMM, KC_SFTENT,     SY_SPC,  A_DOT,   KC_HOME, KC_END
+  KC_TRNS,     KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,                           KC_TRNS,       KC_TRNS,       KC_TRNS,     KC_TRNS,        KC_TRNS,       KC_TRNS,
+  KC_TRNS,     LSA(KC_1), LSA(KC_2), LSA(KC_3), LSA(KC_4), LSA(KC_5),                         LALT(KC_LEFT), LALT(KC_DOWN), LALT(KC_UP), LALT(KC_RIGHT), LALT(KC_BSPC), KC_BSLS,
+  KC_TRNS,     LCA(KC_1), LCA(KC_2), LCA(KC_3), LCA(KC_4), LCA(KC_5),                         KC_LEFT,       KC_DOWN,       KC_UP,       KC_RIGHT,       KC_BSPC,       KC_QUOT,
+  LCA(KC_SPC), KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,   KC_TRNS,       KC_TRNS, LGUI(KC_LEFT), LGUI(KC_DOWN), LGUI(KC_UP), LGUI(KC_RIGHT), LGUI(KC_BSPC), KC_RSFT,
+                                     ADJ,       KC_LALT,   G_COMM,    KC_SFTENT,     SY_SPC,  A_DOT,         KC_HOME,       KC_END
 ),
 /* SYMBOL
  * ,-----------------------------------------.                    ,-----------------------------------------.
